@@ -96,7 +96,7 @@ const server = http.createServer((req,res)=>{
         }
     });
 
-    conexion.query('SELECT * FROM cliente', function name(error, results, field) {
+    conexion.query('SELECT * FROM cliente', function (error, results, field) {
         if (error) {
             throw error;
         }
@@ -106,6 +106,17 @@ const server = http.createServer((req,res)=>{
             // console.log(result);
         });
         console.log(datos);
+    });
+    conexion.query('SELECT * FROM empleado', function (error, results, field) {
+        if (error) {
+            throw error;
+        }else{
+            let empleado = [];
+            results.forEach(resultado => {
+                empleado.push(resultado);
+            });
+            console.log(empleado);
+        }
     });
 });
 
